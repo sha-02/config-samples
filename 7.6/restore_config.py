@@ -1,0 +1,1 @@
+/fortipoc/config-manager/restore_config.py
