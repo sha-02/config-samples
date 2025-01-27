@@ -1,0 +1,56 @@
+config router community-list
+    edit "Overlays_OK"
+        config rule
+            edit 1
+                set action permit
+                set match "65001:1"
+            next
+        end
+    next
+    edit "Overlays_NOK"
+        config rule
+            edit 1
+                set action permit
+                set match "65001:2"
+            next
+        end
+    next
+end
+
+config router route-map
+    edit "CORE_OUT"
+        config rule
+            edit 1
+                set action permit
+                set match-community "Overlays_OK"
+                set set-community-delete "Overlays_OK"
+                set set-metric 95
+            next
+            edit 2
+                set action permit
+                set match-community "Overlays_NOK"
+                set set-community-delete "Overlays_NOK"
+                set set-metric 105
+            next
+            edit 3
+                set action permit
+            next
+        end
+    next
+end
+
+config router bgp
+    config neighbor
+        edit "10.2.0.254"
+            set remote-as 65003
+            set interface "port5"
+            set update-source "port5"
+            set route-map-in "SET_LOCAL_LAN"
+            set route-map-out "CORE_OUT"
+            set connect-timer 1
+            set advertisement-interval 1
+            set soft-reconfiguration enable
+        next
+    end
+end
+
