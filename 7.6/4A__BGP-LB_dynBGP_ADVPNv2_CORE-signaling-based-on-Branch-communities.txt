@@ -1,0 +1,5 @@
+BGP on loobpack
+dynamic BGP for shorcuts
+Hub-side steering BGP priority from priority in per-overlay Branch SD-WAN probes
+CORE signaling = Hub sends MED to CORE based on the community received from the Branch
+
