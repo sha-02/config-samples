@@ -1,0 +1,14 @@
+Single Region WEST
+Single Hub WEST-DC1
+EAST-BR1 becomes WEST-BR3
+
+BGP on loobpack
+dynamic BGP for shorcuts
+Hub-side steering BGP priority from priority in per-overlay Branch SD-WAN probes
+  . no SDWAN rule on Hub, Hub-side steering is solely based on Branches' priorities
+  . Different strategies are used by each Branch
+    . WEST-BR1: "lowest cost" INET1, INET2, MPLS        (in-sla 1,2,3 ; out-sla 4,5,6)
+    . WEST-BR2: LB between INET1/INET2/MPLS             (in-sla 1,1,1 ; out-sla 2,2,2)
+    . WEST-BR3: LB between INET1/INET2, fallback MPLS   (in-sla 1,1,2 ; out-sla 3,3,4)
+ 
+no CORE signaling since there is a single Hub
