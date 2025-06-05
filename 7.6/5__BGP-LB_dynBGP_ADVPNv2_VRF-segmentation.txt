@@ -1,0 +1,5 @@
+BGP on loobpack
+dynamic BGP for shorcuts
+Hub-side steering BGP priority from priority in per-overlay Branch SD-WAN probes
+CORE signaling 7.6-style = Hub re-enforces MED to CORE based on the MED received from the Branch
+VRF segmentation (without multicast)
