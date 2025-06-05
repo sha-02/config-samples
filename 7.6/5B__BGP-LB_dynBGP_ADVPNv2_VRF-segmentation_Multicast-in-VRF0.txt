@@ -3,4 +3,9 @@ dynamic BGP for shorcuts
 Hub-side steering BGP priority from priority in per-overlay Branch SD-WAN probes
 CORE signaling 7.6-style = Hub re-enforces MED to CORE based on the MED received from the Branch
 VRF segmentation (origin can be NATed)
-No multicast
+
+Multicast in BLUE VRF
+  . static IP for overlays
+  . 7.4-style: 
+     . PE VRF and BLUE VRF are forced to VRF 0
+     . WAN VRF (Internet +MPLS overlays) is forced to VRF 1 (unlike PE VRF 0 to avoid configuring VRF leaking -- SNAT not possible in VRF 0)
