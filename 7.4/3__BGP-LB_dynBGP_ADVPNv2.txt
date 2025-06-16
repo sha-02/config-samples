@@ -1,0 +1,4 @@
+BGP on loobpack
+dynamic BGP for shorcuts
+Hub-side steering BGP priority from SLA metrics in per-overlay Branch SD-WAN probes
+No remote signaling to WEST-CORE
