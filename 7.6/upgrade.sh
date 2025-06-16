@@ -1,1 +1,0 @@
-/fortipoc/config-manager/upgrade.sh
